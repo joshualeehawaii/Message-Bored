@@ -3,14 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>Message Board</title>
+  <base href="/">
 </head>
 <body ng-app="app">
-  <h1>Hello World</h1>
+
+  <div>
+    <h1>Message Board</h1>
+    <div>
+      <a ng-href="/">Home</a>
+      <a ng-href="/login">Login</a>
+      <a ng-href="/register">Register</a>
+      <a ng-href="/users">Users</a>
+    </div>
+  </div>
 
 
+  <div ng-view>
+    <!--this is where the HTML templates are displayed-->
+  </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js" type="text/javascript"></script>
 <script src="./scripts/app.js" type="text/javascript"></script>
+<script src="./scripts/controllers/homeController.js" type="text/javascript"></script>
+<script src="./scripts/controllers/loginController.js" type="text/javascript"></script>
+<script src="./scripts/controllers/registerController.js" type="text/javascript"></script>
+<script src="./scripts/controllers/usersController.js" type="text/javascript"></script>
 </body>
 </html>
