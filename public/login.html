@@ -1,17 +1,17 @@
-<h2>Angular Message Board Login</h2>
-
-<div class="newForm">
-
-  <form action="/login" method="POST">
+<div class="contatiner">
+  <form action="/login">
 
     <p>Username</p>
-    <input type="text" name="username">
+    <input
+      type="text"
+      placeholder=" e.g Bruce_Wayne "
+      ng-model="checkUser.name">
 
-    <p>Password</p>
-    <input type="password" name="password">
-
-   <input type="submit" value="Submit">
+    <button
+      class="btn btn-default"
+      ng-click="loginUser()">
+    Sign In
+    </button>
 
   </form>
-
  </div>

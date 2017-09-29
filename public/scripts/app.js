@@ -1,31 +1,42 @@
-angular.module('app', ['ngRoute']);
+/*jshint esversion: 6 */
+angular
+  .module('app', ['ngRoute']);
 
-angular.module('app')
+angular
+  .module('app')
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
     $routeProvider
     .when('/', {
+      controller: 'HomeController',
       templateUrl: 'home.html',
-      controller: 'HomeController'
-    })
-    .when('/login', {
-      templateUrl: 'login.html',
-      controller: 'LoginController'
     })
     .when('/register', {
-      templateUrl: 'register.html',
-      controller: 'RegisterController'
+      controller: 'NewUserController',
+      templateUrl: 'newUser.html',
+    })
+    .when('/login', {
+      controller: 'LoginController',
+      templateUrl: 'login.html'
     })
     .when('/users', {
-      templateUrl: 'users.html',
-      controller: 'UsersController'
+      controller: 'UserController',
+      templateUrl: 'users.html'
     })
-    .when('/latest', {
-      templateUrl: 'latest.html',
-      controller: 'LatestController'
+    .when('/topics', { //<--/:id
+      controller: 'TopicsController',
+      templateUrl: 'topics.html'
+    })
+    .when('/latest', { //<--/:id
+      controller: 'LatestController',
+      templateUrl: 'latest.html'
     })
     .otherwise({
-      template: '<h1><center>404 Not Found</center></h1>'
+      redirectTo: '/'
     });
-
     $locationProvider.html5Mode(true);
-  }]);
+  }])
+  .run( () => {
+    return localStorage.setItem('loggedIn', false) || localStorage.setItem('username', null);
+  }
+);
+
